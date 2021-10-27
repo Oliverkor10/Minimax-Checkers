@@ -9,7 +9,7 @@ class Board:
         self.board = []
         self.selected_piece = None
         self.red_left = self.white_left = 12
-        self.red_kings = self.white_kings = 0
+        self.black_kings = self.white_kings = 0
         self.create_board()
 
     def draw_squares(self, win):
@@ -24,7 +24,12 @@ class Board:
         piece.move(row, col)
         if row == ROWS or row == 0:
             piece.make_king()
-
+            if piece.color == WHITE:
+                self.white_kings += 1
+            if piece.color == BLACK:
+                self.black_kings += 1
+    def get_piece(self, row, col):
+        return self.board[row][col]
 
     def create_board(self):
         for row in range(ROWS):
