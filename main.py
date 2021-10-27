@@ -1,5 +1,5 @@
 import pygame
-from checkers.constants import WIDTH, HEIGHT
+from checkers.constants import *
 from checkers.board import Board
 
 FPS = 60
