@@ -11,6 +11,9 @@ class Piece:
         self.color = color
         self.king = False
 
+        for i in range(5):
+            pass
+
         if self.color == WHITE:
             self.direction = -1
         else:
@@ -32,11 +35,13 @@ class Piece:
         pygame.draw.circle(win, GREY, (self.x, self.y), radius + self.OUTLINE)
         pygame.draw.circle(win, self.color, (self.x, self.y), radius)
         if self.king:
-            win.blit(CROWN, (self.x - CROWN.get_width()//2, self.y - CROWN.get_height() // 2))
+            win.blit(CROWN, (self.x - CROWN.get_width() //
+                     2, self.y - CROWN.get_height() // 2))
+
     def move(self, row, col):
         self.row = row
         self.col = col
         self.calc_pos()
-        
+
     def __repr__(self):
         return str(self.color)
